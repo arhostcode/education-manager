@@ -1,3 +1,14 @@
 package ru.ardyc.studentsinfo.model
 
-data class Course(val id: Long, val name: String, val students: MutableList<Student>)
+import jakarta.persistence.*
+
+@Entity
+data class Course(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
+    var name: String,
+    @ManyToMany(fetch = FetchType.LAZY)
+    var students: MutableList<Student>,
+    @OneToMany(fetch = FetchType.LAZY)
+    var marks: MutableList<StudentMark>
+)

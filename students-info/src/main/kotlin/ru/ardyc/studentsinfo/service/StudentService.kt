@@ -1,6 +1,7 @@
 package ru.ardyc.studentsinfo.service
 
 import ru.ardyc.studentsinfo.dto.CreateStudentRequest
+import ru.ardyc.studentsinfo.dto.StudentResponse
 import ru.ardyc.studentsinfo.model.Course
 import ru.ardyc.studentsinfo.model.Student
 import ru.ardyc.studentsinfo.model.StudentMark
@@ -16,4 +17,5 @@ interface StudentService {
     fun addMark(student: Student, course: Course, mark: Int)
 
     fun getStudentMarks(student: Student): List<StudentMark>
+    fun getStudent(id: Long): StudentResponse
 }

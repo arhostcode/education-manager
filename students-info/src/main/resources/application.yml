@@ -4,7 +4,15 @@ spring:
     username: sa
     password: password
     driverClassName: org.h2.Driver
+  h2:
+    console.enabled: true
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
   kafka:
     bootstrap-servers: 0.0.0.0:29092
+  graphql:
+    graphiql:
+      enabled: true
+server:
+  port: 8081

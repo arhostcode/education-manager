@@ -1,15 +1,15 @@
 package ru.ardyc.studentsinfo.model
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
 data class Student(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = null,
-    val name: String
-//    @ManyToMany val courses: MutableList<Course> = mutableListOf(),
-//    val marks: MutableList<StudentMark> = mutableListOf()
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
+    var name: String,
+    @ManyToMany(fetch = FetchType.LAZY)
+    var courses: MutableList<Course> = mutableListOf(),
+    @OneToMany(fetch = FetchType.LAZY)
+    var marks: MutableList<StudentMark> = mutableListOf()
 )
 
